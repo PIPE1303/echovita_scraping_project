@@ -99,9 +99,11 @@ SCD consolidation on the provided sample dataset produced the expected output:
 
 ---
 
-## Sample Outputs
+## Sample Outputs and Execution Evidence
 
-See [`samples/`](samples/) for representative outputs from an actual pipeline run:
-
-- [`obituaries_sample.jsonl`](samples/obituaries_sample.jsonl) — first 5 scraped records
-- [`consolidated_persons_sample.csv`](samples/consolidated_persons_sample.csv) — SCD consolidation result
+| Artifact | Location |
+|----------|----------|
+| Scraped records (12) | [`../samples/obituaries_sample.jsonl`](../samples/obituaries_sample.jsonl) |
+| SCD consolidation result | [`../samples/consolidated_persons_sample.csv`](../samples/consolidated_persons_sample.csv) |
+| DAG graph screenshot | [`images/dag_graph.png`](images/dag_graph.png) |
+| Task logs (full run) | [`airflow_logs/`](airflow_logs/) |

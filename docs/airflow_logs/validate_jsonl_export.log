@@ -1,0 +1,381 @@
+c1107d018024
+ ▶ Log message source details
+[2026-03-11, 15:40:27 UTC] {local_task_job_runner.py:123} ▼ Pre task execution logs
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: echovita_pipeline.run_scrapy_spider manual__2026-03-11T15:40:26.127979+00:00 [queued]>
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: echovita_pipeline.run_scrapy_spider manual__2026-03-11T15:40:26.127979+00:00 [queued]>
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:2884} INFO - Starting attempt 1 of 3
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:2907} INFO - Executing <Task(_BashDecoratedOperator): run_scrapy_spider> on 2026-03-11 15:40:26.127979+00:00
+[2026-03-11, 15:40:27 UTC] {logging_mixin.py:190} WARNING - /usr/local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=167) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-11, 15:40:27 UTC] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'echovita_pipeline', 'run_scrapy_spider', 'manual__2026-03-11T15:40:26.127979+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/echovita_pipeline_dag.py', '--cfg-path', '/tmp/tmp0qjid7zz']
+[2026-03-11, 15:40:27 UTC] {standard_task_runner.py:105} INFO - Job 105: Subtask run_scrapy_spider
+[2026-03-11, 15:40:27 UTC] {standard_task_runner.py:72} INFO - Started process 168 to run task
+[2026-03-11, 15:40:27 UTC] {task_command.py:467} INFO - Running <TaskInstance: echovita_pipeline.run_scrapy_spider manual__2026-03-11T15:40:26.127979+00:00 [running]> on host c1107d018024
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Andres Marciales' AIRFLOW_CTX_DAG_ID='echovita_pipeline' AIRFLOW_CTX_TASK_ID='run_scrapy_spider' AIRFLOW_CTX_EXECUTION_DATE='2026-03-11T15:40:26.127979+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-11T15:40:26.127979+00:00'
+[2026-03-11, 15:40:27 UTC] {taskinstance.py:740} ▲▲▲ Log group end
+[2026-03-11, 15:40:27 UTC] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-03-11, 15:40:27 UTC] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /usr/local/airflow && scrapy crawl echovita -s PROJECT_ROOT=/usr/local/airflow/include/outputs -s JSONL_OUTPUT_PATH=obituaries.jsonl']
+[2026-03-11, 15:40:27 UTC] {subprocess.py:99} INFO - Output:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.utils.log] INFO: Scrapy 2.14.1 started (bot: echovita_scraper)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.utils.log] INFO: Versions:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - {'lxml': '5.3.2',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'libxml2': '2.12.10',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'cssselect': '1.4.0',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'parsel': '1.11.0',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'w3lib': '2.4.0',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'Twisted': '25.5.0',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'Python': '3.12.12 (main, Feb 24 2026, 20:29:11) [GCC 12.2.0]',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'pyOpenSSL': '25.1.0 (OpenSSL 3.5.2 5 Aug 2025)',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'cryptography': '45.0.7',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'Platform': 'Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36'}
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.addons] INFO: Enabled addons:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - []
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.extensions.telnet] INFO: Telnet Password: e197311d2866db52
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.middleware] INFO: Enabled extensions:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - ['scrapy.extensions.corestats.CoreStats',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.extensions.logcount.LogCount',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.extensions.telnet.TelnetConsole',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.extensions.memusage.MemoryUsage',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.extensions.logstats.LogStats']
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.crawler] INFO: Overridden settings:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - {'BOT_NAME': 'echovita_scraper',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'CONCURRENT_REQUESTS': 2,
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'DOWNLOAD_DELAY': 1.0,
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'LOG_LEVEL': 'INFO',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'NEWSPIDER_MODULE': 'echovita_scraper.spiders',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'ROBOTSTXT_OBEY': True,
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'SPIDER_MODULES': ['echovita_scraper.spiders']}
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.middleware] INFO: Enabled downloader middlewares:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - ['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.downloadermiddlewares.stats.DownloaderStats']
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.middleware] INFO: Enabled spider middlewares:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - ['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.spidermiddlewares.referer.RefererMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'scrapy.spidermiddlewares.depth.DepthMiddleware']
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.middleware] INFO: Enabled item pipelines:
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - ['echovita_scraper.pipelines.MockS3Pipeline',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'echovita_scraper.pipelines.MockGCSPipeline',
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -  'echovita_scraper.pipelines.JsonlExportPipeline']
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:41: ScrapyDeprecationWarning: MockS3Pipeline.open_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.open_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:44: ScrapyDeprecationWarning: MockS3Pipeline.close_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.close_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:47: ScrapyDeprecationWarning: MockS3Pipeline.process_item() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.process_item)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:41: ScrapyDeprecationWarning: MockGCSPipeline.open_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.open_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:44: ScrapyDeprecationWarning: MockGCSPipeline.close_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.close_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:47: ScrapyDeprecationWarning: MockGCSPipeline.process_item() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.process_item)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:41: ScrapyDeprecationWarning: JsonlExportPipeline.open_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.open_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:44: ScrapyDeprecationWarning: JsonlExportPipeline.close_spider() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.close_spider)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [py.warnings] WARNING: /usr/local/lib/python3.12/site-packages/scrapy/pipelines/__init__.py:47: ScrapyDeprecationWarning: JsonlExportPipeline.process_item() requires a spider argument, this is deprecated and the argument will not be passed in future Scrapy versions. If you need to access the spider instance you can save the crawler instance passed to from_crawler() and use its spider attribute.
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO -   self._check_mw_method_spider_arg(pipe.process_item)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.core.engine] INFO: Spider opened
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+[2026-03-11, 15:40:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:28 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+[2026-03-11, 15:40:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:32 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/thomas-bell-21225303.json
+[2026-03-11, 15:40:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:32 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/thomas-bell-21225303.json
+[2026-03-11, 15:40:33 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:33 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/linda-norman-21225304.json
+[2026-03-11, 15:40:33 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:33 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/linda-norman-21225304.json
+[2026-03-11, 15:40:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:36 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/sheryl-fiquett-21225277.json
+[2026-03-11, 15:40:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:36 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/sheryl-fiquett-21225277.json
+[2026-03-11, 15:40:37 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:37 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/michael-wayne-blackburn-21225279.json
+[2026-03-11, 15:40:37 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:37 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/michael-wayne-blackburn-21225279.json
+[2026-03-11, 15:40:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:40 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/calvin-strom-21225251.json
+[2026-03-11, 15:40:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:40 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/calvin-strom-21225251.json
+[2026-03-11, 15:40:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:42 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/charlotte-bader-21225252.json
+[2026-03-11, 15:40:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:42 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/charlotte-bader-21225252.json
+[2026-03-11, 15:40:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:43 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/mariano-padilla-21225228.json
+[2026-03-11, 15:40:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:43 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/mariano-padilla-21225228.json
+[2026-03-11, 15:40:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:44 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/ona-katilius-21225229.json
+[2026-03-11, 15:40:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:44 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/ona-katilius-21225229.json
+[2026-03-11, 15:40:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:46 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/nancy-fultz-21225201.json
+[2026-03-11, 15:40:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:46 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/nancy-fultz-21225201.json
+[2026-03-11, 15:40:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:46 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jessie-harp-21225202.json
+[2026-03-11, 15:40:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:46 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jessie-harp-21225202.json
+[2026-03-11, 15:40:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:48 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/peter-uhl-21225203.json
+[2026-03-11, 15:40:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:48 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/peter-uhl-21225203.json
+[2026-03-11, 15:40:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:49 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jeffrey-clark-21225205.json
+[2026-03-11, 15:40:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:49 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jeffrey-clark-21225205.json
+[2026-03-11, 15:40:50 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:50 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/edgar-greene-21225206.json
+[2026-03-11, 15:40:50 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:50 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/edgar-greene-21225206.json
+[2026-03-11, 15:40:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:51 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/donta-sanders-21225207.json
+[2026-03-11, 15:40:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:51 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/donta-sanders-21225207.json
+[2026-03-11, 15:40:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:52 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/catherine-trivett-21225208.json
+[2026-03-11, 15:40:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:52 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/catherine-trivett-21225208.json
+[2026-03-11, 15:40:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:54 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/john-william-21225209.json
+[2026-03-11, 15:40:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:54 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/john-william-21225209.json
+[2026-03-11, 15:40:55 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:55 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/anne-stegall-21225211.json
+[2026-03-11, 15:40:55 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:55 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/anne-stegall-21225211.json
+[2026-03-11, 15:40:56 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:56 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/robert-powers-21225212.json
+[2026-03-11, 15:40:56 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:56 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/robert-powers-21225212.json
+[2026-03-11, 15:40:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:57 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/coyn-richardson-21225213.json
+[2026-03-11, 15:40:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:57 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/coyn-richardson-21225213.json
+[2026-03-11, 15:40:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:59 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/gladys-rambo-21225215.json
+[2026-03-11, 15:40:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:40:59 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/gladys-rambo-21225215.json
+[2026-03-11, 15:41:00 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:00 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/cleophos-vann-21225216.json
+[2026-03-11, 15:41:00 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:00 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/cleophos-vann-21225216.json
+[2026-03-11, 15:41:01 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:01 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/brian-mettler-21225217.json
+[2026-03-11, 15:41:01 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:01 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/brian-mettler-21225217.json
+[2026-03-11, 15:41:03 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:03 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/linda-kenney-21225218.json
+[2026-03-11, 15:41:03 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:03 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/linda-kenney-21225218.json
+[2026-03-11, 15:41:04 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:04 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/yasmay-cuevas-21225219.json
+[2026-03-11, 15:41:04 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:04 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/yasmay-cuevas-21225219.json
+[2026-03-11, 15:41:05 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:05 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/rosalyn-duncan-21225220.json
+[2026-03-11, 15:41:05 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:05 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/rosalyn-duncan-21225220.json
+[2026-03-11, 15:41:06 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:06 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/zachary-openshaw-21225221.json
+[2026-03-11, 15:41:06 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:06 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/zachary-openshaw-21225221.json
+[2026-03-11, 15:41:08 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:08 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/anthony-brooks-21225222.json
+[2026-03-11, 15:41:08 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:08 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/anthony-brooks-21225222.json
+[2026-03-11, 15:41:09 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:09 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/leon-holt-21225223.json
+[2026-03-11, 15:41:09 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:09 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/leon-holt-21225223.json
+[2026-03-11, 15:41:10 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:10 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/robert-fayard-21225224.json
+[2026-03-11, 15:41:10 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:10 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/robert-fayard-21225224.json
+[2026-03-11, 15:41:12 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:12 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/luella-nickelson-21225225.json
+[2026-03-11, 15:41:12 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:12 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/luella-nickelson-21225225.json
+[2026-03-11, 15:41:13 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:13 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/roger-larson-21225226.json
+[2026-03-11, 15:41:13 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:13 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/roger-larson-21225226.json
+[2026-03-11, 15:41:14 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:14 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/barbara-ann-kemper-21225227.json
+[2026-03-11, 15:41:14 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:14 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/barbara-ann-kemper-21225227.json
+[2026-03-11, 15:41:16 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:16 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/sherry-norman-21225230.json
+[2026-03-11, 15:41:16 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:16 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/sherry-norman-21225230.json
+[2026-03-11, 15:41:17 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:17 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/john-simock-21225231.json
+[2026-03-11, 15:41:17 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:17 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/john-simock-21225231.json
+[2026-03-11, 15:41:18 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:18 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/bruce-cotton-21225232.json
+[2026-03-11, 15:41:18 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:18 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/bruce-cotton-21225232.json
+[2026-03-11, 15:41:20 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:20 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/teodoro-mazzone-21225233.json
+[2026-03-11, 15:41:20 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:20 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/teodoro-mazzone-21225233.json
+[2026-03-11, 15:41:21 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:21 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jin-dai-21225234.json
+[2026-03-11, 15:41:21 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:21 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jin-dai-21225234.json
+[2026-03-11, 15:41:22 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:22 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/steven-simpson-21225235.json
+[2026-03-11, 15:41:22 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:22 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/steven-simpson-21225235.json
+[2026-03-11, 15:41:24 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:24 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/luzviminda-bonamy-21225236.json
+[2026-03-11, 15:41:24 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:24 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/luzviminda-bonamy-21225236.json
+[2026-03-11, 15:41:25 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:25 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/kathryn-heinrichs-21225237.json
+[2026-03-11, 15:41:25 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:25 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/kathryn-heinrichs-21225237.json
+[2026-03-11, 15:41:26 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:26 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/earnest-belt-21225238.json
+[2026-03-11, 15:41:26 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:26 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/earnest-belt-21225238.json
+[2026-03-11, 15:41:27 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:27 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/keith-latham-21225239.json
+[2026-03-11, 15:41:27 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:27 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/keith-latham-21225239.json
+[2026-03-11, 15:41:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:28 [scrapy.extensions.logstats] INFO: Crawled 48 pages (at 48 pages/min), scraped 42 items (at 42 items/min)
+[2026-03-11, 15:41:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:28 [scrapy.extensions.logstats] INFO: Crawled 48 pages (at 0 pages/min), scraped 42 items (at 0 items/min)
+[2026-03-11, 15:41:29 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:29 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/roger-weist-21225240.json
+[2026-03-11, 15:41:29 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:29 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/roger-weist-21225240.json
+[2026-03-11, 15:41:30 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:30 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/cynthea-keppel-21225241.json
+[2026-03-11, 15:41:30 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:30 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/cynthea-keppel-21225241.json
+[2026-03-11, 15:41:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:32 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/ione-torngren-21225242.json
+[2026-03-11, 15:41:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:32 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/ione-torngren-21225242.json
+[2026-03-11, 15:41:33 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:33 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/gayle-mourton-21225243.json
+[2026-03-11, 15:41:33 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:33 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/gayle-mourton-21225243.json
+[2026-03-11, 15:41:34 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:34 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/teresa-robin-maynard-21225244.json
+[2026-03-11, 15:41:34 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:34 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/teresa-robin-maynard-21225244.json
+[2026-03-11, 15:41:35 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:35 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/ron-butler-21225245.json
+[2026-03-11, 15:41:35 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:35 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/ron-butler-21225245.json
+[2026-03-11, 15:41:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:36 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jimmy-cardenas-21225246.json
+[2026-03-11, 15:41:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:36 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jimmy-cardenas-21225246.json
+[2026-03-11, 15:41:38 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:38 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/catherine-kelly-21225247.json
+[2026-03-11, 15:41:38 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:38 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/catherine-kelly-21225247.json
+[2026-03-11, 15:41:39 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:39 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/david-brooman-21225248.json
+[2026-03-11, 15:41:39 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:39 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/david-brooman-21225248.json
+[2026-03-11, 15:41:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:40 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/april-kaylor-21225249.json
+[2026-03-11, 15:41:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:40 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/april-kaylor-21225249.json
+[2026-03-11, 15:41:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:42 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/justin-jenkins-21225250.json
+[2026-03-11, 15:41:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:42 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/justin-jenkins-21225250.json
+[2026-03-11, 15:41:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:43 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/edward-callahan-21225253.json
+[2026-03-11, 15:41:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:43 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/edward-callahan-21225253.json
+[2026-03-11, 15:41:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:44 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/ellen-hargreaves-21225255.json
+[2026-03-11, 15:41:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:44 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/ellen-hargreaves-21225255.json
+[2026-03-11, 15:41:45 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:45 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/kathleen-johnson-21225256.json
+[2026-03-11, 15:41:45 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:45 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/kathleen-johnson-21225256.json
+[2026-03-11, 15:41:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:46 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/rodney-crump-iii-21225257.json
+[2026-03-11, 15:41:46 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:46 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/rodney-crump-iii-21225257.json
+[2026-03-11, 15:41:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:48 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/franklin-chinn-jr-21225258.json
+[2026-03-11, 15:41:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:48 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/franklin-chinn-jr-21225258.json
+[2026-03-11, 15:41:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:49 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/robert-burdick-21225259.json
+[2026-03-11, 15:41:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:49 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/robert-burdick-21225259.json
+[2026-03-11, 15:41:50 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:50 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/george-mello-21225260.json
+[2026-03-11, 15:41:50 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:50 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/george-mello-21225260.json
+[2026-03-11, 15:41:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:51 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/william-rego-21225261.json
+[2026-03-11, 15:41:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:51 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/william-rego-21225261.json
+[2026-03-11, 15:41:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:52 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/monica-franklin-21225262.json
+[2026-03-11, 15:41:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:52 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/monica-franklin-21225262.json
+[2026-03-11, 15:41:53 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:53 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/edna-turner-21225263.json
+[2026-03-11, 15:41:53 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:53 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/edna-turner-21225263.json
+[2026-03-11, 15:41:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:54 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/mildred-browell-21225264.json
+[2026-03-11, 15:41:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:54 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/mildred-browell-21225264.json
+[2026-03-11, 15:41:55 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:55 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/john-lawrence-dilling-21225265.json
+[2026-03-11, 15:41:55 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:55 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/john-lawrence-dilling-21225265.json
+[2026-03-11, 15:41:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:57 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jeffrey-dykes-21225266.json
+[2026-03-11, 15:41:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:57 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jeffrey-dykes-21225266.json
+[2026-03-11, 15:41:58 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:58 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/brenda-russell-21225267.json
+[2026-03-11, 15:41:58 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:58 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/brenda-russell-21225267.json
+[2026-03-11, 15:41:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:59 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/eileen-popiolek-21225268.json
+[2026-03-11, 15:41:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:41:59 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/eileen-popiolek-21225268.json
+[2026-03-11, 15:42:01 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:01 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/stanley-brill-21225269.json
+[2026-03-11, 15:42:01 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:01 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/stanley-brill-21225269.json
+[2026-03-11, 15:42:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:02 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/marquetta-pittman-21225271.json
+[2026-03-11, 15:42:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:02 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/marquetta-pittman-21225271.json
+[2026-03-11, 15:42:03 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:03 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jerry-taylor-21225272.json
+[2026-03-11, 15:42:03 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:03 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jerry-taylor-21225272.json
+[2026-03-11, 15:42:04 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:04 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/therese-ann-falder-21225273.json
+[2026-03-11, 15:42:04 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:04 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/therese-ann-falder-21225273.json
+[2026-03-11, 15:42:05 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:05 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/richard-skinner-21225274.json
+[2026-03-11, 15:42:05 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:05 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/richard-skinner-21225274.json
+[2026-03-11, 15:42:07 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:07 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/rudolph-martinez-21225275.json
+[2026-03-11, 15:42:07 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:07 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/rudolph-martinez-21225275.json
+[2026-03-11, 15:42:08 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:08 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/kevin-birt-21225276.json
+[2026-03-11, 15:42:08 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:08 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/kevin-birt-21225276.json
+[2026-03-11, 15:42:09 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:09 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/timothy-booker-iii-21225280.json
+[2026-03-11, 15:42:09 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:09 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/timothy-booker-iii-21225280.json
+[2026-03-11, 15:42:10 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:10 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/debra-ayn-21225281.json
+[2026-03-11, 15:42:10 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:10 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/debra-ayn-21225281.json
+[2026-03-11, 15:42:12 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:12 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/roy-mcclure-21225282.json
+[2026-03-11, 15:42:12 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:12 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/roy-mcclure-21225282.json
+[2026-03-11, 15:42:13 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:13 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/carol-jones-21225283.json
+[2026-03-11, 15:42:13 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:13 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/carol-jones-21225283.json
+[2026-03-11, 15:42:14 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:14 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/miguel-deguzman-21225284.json
+[2026-03-11, 15:42:14 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:14 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/miguel-deguzman-21225284.json
+[2026-03-11, 15:42:16 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:16 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/dee-snowholly-21225285.json
+[2026-03-11, 15:42:16 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:16 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/dee-snowholly-21225285.json
+[2026-03-11, 15:42:17 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:17 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/betty-ray-21225286.json
+[2026-03-11, 15:42:17 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:17 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/betty-ray-21225286.json
+[2026-03-11, 15:42:18 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:18 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/evis-buchanan-21225287.json
+[2026-03-11, 15:42:18 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:18 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/evis-buchanan-21225287.json
+[2026-03-11, 15:42:19 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:19 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/paul-conklin-21225288.json
+[2026-03-11, 15:42:19 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:19 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/paul-conklin-21225288.json
+[2026-03-11, 15:42:19 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:19 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/allen-homeier-jr-21225289.json
+[2026-03-11, 15:42:19 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:19 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/allen-homeier-jr-21225289.json
+[2026-03-11, 15:42:21 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:21 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/delio-sartori-21225291.json
+[2026-03-11, 15:42:21 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:21 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/delio-sartori-21225291.json
+[2026-03-11, 15:42:22 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:22 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/geraldine-kulp-21225292.json
+[2026-03-11, 15:42:22 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:22 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/geraldine-kulp-21225292.json
+[2026-03-11, 15:42:23 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:23 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/linda-deberjeois-21225293.json
+[2026-03-11, 15:42:23 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:23 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/linda-deberjeois-21225293.json
+[2026-03-11, 15:42:24 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:24 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jane-ann-davis-21225294.json
+[2026-03-11, 15:42:24 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:24 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jane-ann-davis-21225294.json
+[2026-03-11, 15:42:25 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:25 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/karen-poore-21225295.json
+[2026-03-11, 15:42:25 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:25 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/karen-poore-21225295.json
+[2026-03-11, 15:42:27 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:27 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/delores-kinney-21225296.json
+[2026-03-11, 15:42:27 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:27 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/delores-kinney-21225296.json
+[2026-03-11, 15:42:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:28 [scrapy.extensions.logstats] INFO: Crawled 97 pages (at 49 pages/min), scraped 91 items (at 49 items/min)
+[2026-03-11, 15:42:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:28 [scrapy.extensions.logstats] INFO: Crawled 97 pages (at 0 pages/min), scraped 91 items (at 0 items/min)
+[2026-03-11, 15:42:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:28 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/sharon-lanthier-21225297.json
+[2026-03-11, 15:42:28 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:28 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/sharon-lanthier-21225297.json
+[2026-03-11, 15:42:29 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:29 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/scotty-goodell-21225298.json
+[2026-03-11, 15:42:29 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:29 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/scotty-goodell-21225298.json
+[2026-03-11, 15:42:31 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:31 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/della-bennett-21225299.json
+[2026-03-11, 15:42:31 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:31 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/della-bennett-21225299.json
+[2026-03-11, 15:42:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:32 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/donnie-pyle-sr-21225300.json
+[2026-03-11, 15:42:32 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:32 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/donnie-pyle-sr-21225300.json
+[2026-03-11, 15:42:34 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:34 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/debrah-garcia-21225301.json
+[2026-03-11, 15:42:34 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:34 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/debrah-garcia-21225301.json
+[2026-03-11, 15:42:35 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:35 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/alan-way-21225302.json
+[2026-03-11, 15:42:35 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:35 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/alan-way-21225302.json
+[2026-03-11, 15:42:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:36 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/gregory-tisdon-21225305.json
+[2026-03-11, 15:42:36 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:36 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/gregory-tisdon-21225305.json
+[2026-03-11, 15:42:37 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:37 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/eddie-kemp-21225306.json
+[2026-03-11, 15:42:37 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:37 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/eddie-kemp-21225306.json
+[2026-03-11, 15:42:38 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:38 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/denise-ann-orsini-21225307.json
+[2026-03-11, 15:42:38 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:38 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/denise-ann-orsini-21225307.json
+[2026-03-11, 15:42:39 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:39 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/ida-mays-21225308.json
+[2026-03-11, 15:42:39 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:39 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/ida-mays-21225308.json
+[2026-03-11, 15:42:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:40 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/homer-russell-sr-21225309.json
+[2026-03-11, 15:42:40 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:40 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/homer-russell-sr-21225309.json
+[2026-03-11, 15:42:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:42 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/debra-dischinger-21225310.json
+[2026-03-11, 15:42:42 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:42 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/debra-dischinger-21225310.json
+[2026-03-11, 15:42:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:43 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/tommy-bailey-21225311.json
+[2026-03-11, 15:42:43 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:43 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/tommy-bailey-21225311.json
+[2026-03-11, 15:42:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:44 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/dale-badge-21225313.json
+[2026-03-11, 15:42:44 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:44 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/dale-badge-21225313.json
+[2026-03-11, 15:42:45 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:45 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/christine-toal-21225314.json
+[2026-03-11, 15:42:45 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:45 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/christine-toal-21225314.json
+[2026-03-11, 15:42:47 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:47 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/nella-faber-21225315.json
+[2026-03-11, 15:42:47 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:47 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/nella-faber-21225315.json
+[2026-03-11, 15:42:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:48 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/peggy-ritzema-21225316.json
+[2026-03-11, 15:42:48 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:48 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/peggy-ritzema-21225316.json
+[2026-03-11, 15:42:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:49 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/lanny-stricherz-21225317.json
+[2026-03-11, 15:42:49 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:49 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/lanny-stricherz-21225317.json
+[2026-03-11, 15:42:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:51 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/michael-latino-21225318.json
+[2026-03-11, 15:42:51 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:51 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/michael-latino-21225318.json
+[2026-03-11, 15:42:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:52 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/arthur-blye-21225319.json
+[2026-03-11, 15:42:52 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:52 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/arthur-blye-21225319.json
+[2026-03-11, 15:42:53 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:53 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/claire-dicesare-21225320.json
+[2026-03-11, 15:42:53 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:53 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/claire-dicesare-21225320.json
+[2026-03-11, 15:42:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:54 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/walter-yerkie-21225321.json
+[2026-03-11, 15:42:54 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:54 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/walter-yerkie-21225321.json
+[2026-03-11, 15:42:56 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:56 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/george-kushmaul-21225322.json
+[2026-03-11, 15:42:56 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:56 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/george-kushmaul-21225322.json
+[2026-03-11, 15:42:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:57 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/su-tran-21225323.json
+[2026-03-11, 15:42:57 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:57 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/su-tran-21225323.json
+[2026-03-11, 15:42:58 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:58 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/melissa-mcmillian-21225324.json
+[2026-03-11, 15:42:58 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:58 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/melissa-mcmillian-21225324.json
+[2026-03-11, 15:42:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:59 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/gloria-wynn-21225325.json
+[2026-03-11, 15:42:59 UTC] {subprocess.py:106} INFO - 2026-03-11 15:42:59 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/gloria-wynn-21225325.json
+[2026-03-11, 15:43:00 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:00 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/rosie-lyles-21225326.json
+[2026-03-11, 15:43:00 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:00 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/rosie-lyles-21225326.json
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [echovita_scraper.pipelines] INFO: Mock S3 upload: obituaries/jeff-stanberry-jr-21225327.json
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [echovita_scraper.pipelines] INFO: Mock GCS upload: obituaries/jeff-stanberry-jr-21225327.json
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [scrapy.core.engine] INFO: Closing spider (finished)
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [echovita_scraper.pipelines] INFO: Exported 119 items to /usr/local/airflow/include/outputs/obituaries.jsonl
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [echovita_scraper.pipelines] INFO: Mock GCS: 119 items — manifest: /usr/local/airflow/include/outputs/upload_manifest_gcs.json
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [echovita_scraper.pipelines] INFO: Mock S3: 119 items — manifest: /usr/local/airflow/include/outputs/upload_manifest_s3.json
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - {'downloader/request_bytes': 69864,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'downloader/request_count': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'downloader/request_method_count/GET': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'downloader/response_bytes': 3370981,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'downloader/response_count': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'downloader/response_status_count/200': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'dupefilter/filtered': 1,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'elapsed_time_seconds': 153.905541,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'finish_reason': 'finished',
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'finish_time': datetime.datetime(2026, 3, 11, 15, 43, 2, 188064, tzinfo=datetime.timezone.utc),
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'httpcompression/response_bytes': 18341253,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'httpcompression/response_count': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'item_scraped_count': 119,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'items_per_minute': 46.66666666666667,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'log_count/INFO': 248,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'memusage/max': 186236928,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'memusage/startup': 186236928,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'request_depth_max': 5,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'response_received_count': 125,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'responses_per_minute': 49.01960784313726,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'robotstxt/request_count': 1,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'robotstxt/response_count': 1,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'robotstxt/response_status_count/200': 1,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'scheduler/dequeued': 124,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'scheduler/dequeued/memory': 124,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'scheduler/enqueued': 124,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'scheduler/enqueued/memory': 124,
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO -  'start_time': datetime.datetime(2026, 3, 11, 15, 40, 28, 282523, tzinfo=datetime.timezone.utc)}
+[2026-03-11, 15:43:02 UTC] {subprocess.py:106} INFO - 2026-03-11 15:43:02 [scrapy.core.engine] INFO: Spider closed (finished)
+[2026-03-11, 15:43:02 UTC] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-03-11, 15:43:02 UTC] {taskinstance.py:349} ▼ Post task execution logs
+[2026-03-11, 15:43:02 UTC] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=echovita_pipeline, task_id=run_scrapy_spider, run_id=manual__2026-03-11T15:40:26.127979+00:00, execution_date=20260311T154026, start_date=20260311T154027, end_date=20260311T154302
+[2026-03-11, 15:43:02 UTC] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-03-11, 15:43:02 UTC] {taskinstance.py:3924} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2026-03-11, 15:43:02 UTC] {local_task_job_runner.py:245} ▲▲▲ Log group end

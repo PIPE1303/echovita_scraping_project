@@ -80,9 +80,11 @@ Item
 
 All three pipelines accept `scrapy.Item` (base class) rather than the concrete `ObituaryItem`. This means adding a new spider with a different item schema requires no changes to the pipeline layer.
 
-`RealS3Pipeline` is available but disabled by default. To enable:
-1. Uncomment it in `ITEM_PIPELINES` at priority 150
-2. Set `S3_BUCKET_NAME`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`
+`RealS3Pipeline` is implemented but disabled by default. The assessment explicitly does not require real cloud integration, so enabling it by default would introduce an unnecessary external dependency. However, the implementation is complete and production-ready — it uses boto3, handles `BotoCoreError` and `ClientError` explicitly, and follows the same interface as the mock pipelines. The design decision was to keep the real pipeline as a first-class citizen in the codebase rather than a stub, so that transitioning to a live S3 bucket requires only configuration changes, not code changes.
+
+To enable:
+1. Uncomment `RealS3Pipeline` in `ITEM_PIPELINES` at priority 150
+2. Set `S3_BUCKET_NAME`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` via environment variables
 
 ### Inter-process communication via manifests
 
@@ -95,7 +97,7 @@ with open(manifest_path, "w") as f:
     json.dump(manifest, f)
 ```
 
-After validation, `cleanup_temp_files` removes them — they are not part of the final output.
+After validation, `cleanup_temp_files` removes them. The rationale: manifests are coordination artifacts, not pipeline outputs. They exist solely to bridge the subprocess boundary between the spider and Airflow. Keeping them after the run would pollute the output directory with files that carry no value beyond the current execution and would cause false positives on the next run's validation if the spider happened to fail silently (the old manifest would still be there, making `validate_s3_upload` pass against stale data). Deleting them enforces that each run's validation reflects that run's actual output.
 
 ### Output path unification
 
@@ -104,6 +106,14 @@ After validation, `cleanup_temp_files` removes them — they are not part of the
 ---
 
 ## Part 2 — SCD Consolidation
+
+### Design decision: city and state extraction beyond the requirements
+
+The assessment's Part 2 operates on a provided static CSV (`scd_person_geo_sample.csv`) and does not explicitly require connecting it to the scraping output. However, the geographic data (city, state) is available on each Echovita detail page and is directly relevant to the SCD model described in the requirements — which tracks precisely those fields per person over time.
+
+Extracting `city` and `state` in the spider and feeding them into the SCD table was a deliberate design decision to demonstrate end-to-end pipeline coherence. In a production scenario, each daily scrape would produce new geographic observations for recently deceased individuals. Appending those as open SCD rows (`valid_to = NULL`, `valid_from = today`) is the natural extension of the model — the `enrich_scd` task simulates exactly this pattern.
+
+The source file is never modified. The enrichment produces a separate `scd_enriched.csv` that is overwritten on each run, keeping the source data immutable and the pipeline idempotent.
 
 ### Query design
 
@@ -158,12 +168,53 @@ val_jsonl >> [sample, enriched]           # JSONL required for both sampling and
 
 ### Production-readiness criteria
 
-| Criterion | Implementation |
-|-----------|---------------|
-| **Retries** | `retries=2`, `retry_delay=timedelta(minutes=2)` in `DEFAULT_ARGS` |
-| **Logging** | Pipelines use `logging.getLogger(__name__)`; spider uses `self.logger`; DAG tasks use `print()` (captured by Airflow's task logs) |
-| **Clear dependencies** | Explicit `>>` graph at the bottom of the DAG function — readable as a visual dependency declaration |
-| **Idempotent** | All file writes use `"w"` mode (overwrite); `scd_enriched.csv` rebuilt from source on every run; DuckDB `unlink()` before `COPY TO` |
+#### Retries
+
+Configured via `DEFAULT_ARGS` applied to all tasks in the DAG:
+
+```python
+DEFAULT_ARGS = {
+    "retries": 2,
+    "retry_delay": timedelta(minutes=2),
+}
+```
+
+Every task retries up to twice on failure with a 2-minute cooldown between attempts. This covers transient failures such as network timeouts during the spider run or file system race conditions during validation.
+
+#### Logging
+
+Three logging layers are active simultaneously:
+
+- **Scrapy pipelines** — `logging.getLogger(__name__)` at the module level. Each `process_item` call logs the storage key (`INFO`); `close_spider` logs item count and manifest path. Failures in `errback_detail` are logged as `WARNING` with the failed URL.
+- **Scrapy spider** — `self.logger` (Scrapy's built-in per-spider logger). Bound to the spider name, so log lines are identifiable by spider in multi-spider projects.
+- **Airflow tasks** — `print()` statements inside `@task` functions. Airflow captures stdout from task execution and surfaces it in the task log viewer in the UI. No additional logging setup required in the TaskFlow API.
+
+All logs are visible in the Airflow UI under each task's **Log** tab, regardless of whether the task succeeded or failed.
+
+#### Clear task dependencies
+
+Dependencies are declared explicitly using the `>>` operator in a dedicated block at the bottom of the DAG function, separate from task definitions:
+
+```python
+scrape >> [val_s3, val_gcs, val_jsonl]
+val_jsonl >> [sample, enriched]
+[val_s3, val_gcs, sample, consolidate] >> cleanup
+```
+
+This separation — define tasks, then wire them — makes the dependency graph readable as a standalone declaration. The Airflow UI renders it as the visual graph shown in `images/dag_graph.png`.
+
+#### Idempotent behavior
+
+Idempotency is enforced at every write point in the pipeline:
+
+| Output | Guarantee |
+|--------|-----------|
+| `obituaries.jsonl` | Opened with `"w"` — overwritten on every run |
+| `upload_manifest_s3/gcs.json` | Opened with `"w"` — overwritten, then deleted by cleanup |
+| `scd_enriched.csv` | Rebuilt from immutable source CSV + current JSONL on every run |
+| `consolidated_persons.csv` | `out.unlink()` called before DuckDB `COPY TO` to avoid permission errors on overwrite |
+
+Re-running the full pipeline any number of times on the same day produces identical output files, with no accumulated state between runs.
 
 ### DAG documentation
 
@@ -190,6 +241,19 @@ The pipeline chain (MockS3, MockGCS, JSONL export) handles any `scrapy.Item` aut
 
 ---
 
+## Pipeline screenshots
+
+### DAG graph view
+![DAG graph](images/dag_graph.png)
+
+### DAG overview
+![DAG view](images/dag_view.png)
+
+### Task duration breakdown
+![Task durations](images/tasks_duration_view.png)
+
+---
+
 ## Project Structure
 
 ```
@@ -209,6 +273,20 @@ echovita_project/
 │   ├── obituaries_sample.jsonl
 │   └── consolidated_persons_sample.csv
 ├── include/outputs/               # Runtime outputs (volume-mounted, gitignored)
+├── docs/
+│   ├── images/                    # Airflow UI screenshots
+│   │   ├── dag_graph.png
+│   │   ├── dag_view.png
+│   │   └── tasks_duration_view.png
+│   └── airflow_logs/              # Task logs from a representative run
+│       ├── run_scrapy_spider.log
+│       ├── validate_s3_upload.log
+│       ├── validate_gcs_upload.log
+│       ├── validate_jsonl_export.log
+│       ├── log_sample_items.log
+│       ├── enrich_scd.log
+│       ├── run_consolidation.log
+│       └── cleanup_temp_files.log
 ├── tests/
 │   └── test_dag_echovita.py
 ├── Dockerfile
