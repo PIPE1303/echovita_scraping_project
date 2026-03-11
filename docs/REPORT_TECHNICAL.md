@@ -3,11 +3,11 @@
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Apache Airflow DAG                       │
-│                                                             │
+┌────────────────────────────────────────────────────────────┐
+│                    Apache Airflow DAG                      │
+│                                                            │
 │  ┌──────────────┐    ┌────────────┐    ┌────────────────┐  │
-│  │ run_scrapy   │───▶│ validate   │───▶│   enrich_scd   │  │
+│  │ run_scrapy   │───▶│ validate   │───▶│   enrich_scd  │  │
 │  │   _spider    │    │ s3/gcs/    │    │                │  │
 │  │ (@task.bash) │    │ jsonl      │    └───────┬────────┘  │
 │  └──────────────┘    └────────────┘            │           │
@@ -22,17 +22,17 @@
 │                             ┌──────────────────────┐       │
 │                             │  cleanup_temp_files  │       │
 │                             └──────────────────────┘       │
-└─────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────┘
          │
          ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    Scrapy Project                           │
 │                                                             │
-│  EchovitaSpider ──▶ MockS3Pipeline (priority 100)          │
+│  EchovitaSpider ──▶ MockS3Pipeline (priority 100)           │
 │                 ──▶ MockGCSPipeline (priority 200)          │
 │                 ──▶ JsonlExportPipeline (priority 300)      │
 │                                                             │
-│  Outputs: obituaries.jsonl, upload_manifest_s3/gcs.json    │
+│  Outputs: obituaries.jsonl, upload_manifest_s3/gcs.json     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -251,6 +251,9 @@ The pipeline chain (MockS3, MockGCS, JSONL export) handles any `scrapy.Item` aut
 
 ### Task duration breakdown
 ![Task durations](images/tasks_duration_view.png)
+
+### Pipeline output files
+![Pipeline outputs](images/real_pipeline_outputs.png)
 
 ---
 
