@@ -1,0 +1,4 @@
+person_id,distinct_cities,first_city,last_city,last_non_null_city
+1,2,Houston,,Dallas
+2,1,San Francisco,San Francisco,San Francisco
+3,0,,,

@@ -1,0 +1,6 @@
+person_id,name,state,city,valid_from,valid_to
+1,John Doe,Texas,Houston,2020-01-01,2022-07-15
+1,John Doe,Texas,Dallas,2022-07-15,2023-08-09
+1,John Doe,Texas,,2023-08-09,
+2,Richard Smith,California,San Francisco,2022-04-03,
+3,Max Mustermann,California,,2000-07-02,

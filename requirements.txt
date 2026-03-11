@@ -1,0 +1,14 @@
+# Echovita data integration - Python dependencies
+# Airflow is provided by the Astro Runtime base image; do not install it here.
+
+# Part 1: Scrapy
+Scrapy>=2.11.0,<3.0
+
+# Part 1: Real S3 upload (optional - only needed when RealS3Pipeline is enabled)
+boto3>=1.34.0,<2.0
+
+# Part 2: Data consolidation (DuckDB)
+duckdb>=0.9.0,<1.0
+
+# Tests (optional, for local pytest)
+pytest>=7.0.0

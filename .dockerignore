@@ -1,0 +1,20 @@
+# Astronomer / Astro
+.astro
+.git
+
+# Local Airflow / env (do not bake into image)
+.env
+airflow_settings.yaml
+logs/
+.venv
+airflow.db
+airflow.cfg
+__pycache__
+*.pyc
+.DS_Store
+
+# IDE / misc
+.idea
+.vscode
+*.md
+!README.md

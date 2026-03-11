@@ -1,0 +1,27 @@
+# Astro / Astronomer
+.astro
+.env
+airflow_settings.yaml
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+webserver_config.py
+
+# Python
+__pycache__/
+.venv
+*.pyc
+*.pyo
+
+# Runtime outputs (generated on each run — see samples/ for representative examples)
+include/outputs/*.jsonl
+include/outputs/*.json
+include/outputs/*.csv
+data/consolidated_persons.csv
+
+# OS
+.DS_Store
+
+# IDE
+.idea
+.vscode
